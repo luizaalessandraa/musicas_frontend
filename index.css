@@ -1,0 +1,98 @@
+:root {
+    color-scheme: light;
+    font-family: Arial, sans-serif;
+    color: #20232a;
+    background: #f5f6fa;
+    font-synthesis: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 32px 20px;
+}
+
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.botao-link,
+button {
+    border: 0;
+    border-radius: 8px;
+    padding: 11px 16px;
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.botao-link {
+    color: #fff;
+    background: #5b4bdb;
+}
+
+#listaMusicas {
+    display: grid;
+    gap: 14px;
+}
+
+.musica {
+    padding: 20px;
+    border: 1px solid #e1e3eb;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 3px 12px #20232a0d;
+}
+
+.musica h2 {
+    margin: 0 0 8px;
+}
+
+.artista {
+    margin: 0 0 6px;
+    color: #555b66;
+}
+
+.detalhes {
+    margin: 0;
+    color: #737986;
+}
+
+.acoes {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.editar {
+    color: #4c40c4;
+}
+
+.apagar {
+    color: #a4262c;
+    background: #fff0f0;
+}
+
+.mensagem {
+    color: #a4262c;
+}
+
+@media (max-width: 520px) {
+    .cabecalho {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
