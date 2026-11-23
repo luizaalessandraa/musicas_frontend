@@ -1,4 +1,4 @@
-const urlBackend = "http://localhost:3000";
+const urlBackend = "https://musicasbackend-three-ochre.vercel.app";
 
 const listaMusicas = document.getElementById("listaMusicas");
 const mensagem = document.getElementById("mensagem");
