@@ -39,12 +39,37 @@ async function buscarMusicas() {
             const linkEditar = criarElemento("a", "Editar", "editar");
             linkEditar.href = `editar.html?id=${encodeURIComponent(musica.id)}`;
 
-            acoes.append(linkEditar);
+            const botaoApagar = criarElemento("button", "Apagar", "apagar");
+            botaoApagar.type = "button";
+            botaoApagar.addEventListener("click", () => apagarMusica(musica.id));
+
+            acoes.append(linkEditar, botaoApagar);
             card.append(acoes);
             listaMusicas.append(card);
         });
     } catch (error) {
         mensagem.textContent = error.message;
+    }
+}
+
+async function apagarMusica(id) {
+    if (!confirm("Tem certeza que quer apagar essa música?")) {
+        return;
+    }
+
+    try {
+        const resposta = await fetch(`${urlBackend}/apagar/${encodeURIComponent(id)}`, {
+            method: "DELETE",
+        });
+        const resultado = await resposta.json();
+        if (!resposta.ok) {
+            throw new Error(resultado.mensagem || "Não foi possível apagar a música.");
+        }
+
+        alert(resultado.mensagem);
+        await buscarMusicas();
+    } catch (error) {
+        alert(error.message);
     }
 }
 
